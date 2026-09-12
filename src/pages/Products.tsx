@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import {
   Car,
   Bike,
@@ -13,6 +14,8 @@ import {
   ArrowRight,
   MessageCircle,
 } from "lucide-react";
+
+const WHATSAPP_NUMBER = "94740505718";
 
 const products = [
   {
@@ -83,6 +86,11 @@ const specialServices = [
 ];
 
 const Products = () => {
+  usePageMeta(
+    "Products & Services | Twin Auto Traders",
+    "Browse genuine and aftermarket auto parts for Japanese vehicles, motorcycle components, and premium accessories at Twin Auto Traders."
+  );
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -94,7 +102,7 @@ const Products = () => {
               <span className="text-primary font-semibold uppercase tracking-wider text-sm">
                 Products & Services
               </span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-accent-foreground mt-2 mb-6">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-6">
                 Quality <span className="text-gradient">Auto Parts</span>
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -147,10 +155,10 @@ const Products = () => {
         </section>
 
         {/* Special Services */}
-        <section className="py-20 bg-accent">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-accent-foreground mb-4">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Special Services
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -179,30 +187,29 @@ const Products = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-primary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+        <section className="py-20 bg-card relative overflow-hidden border-y border-border">
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
+          </div>
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               Need a Specific Part?
             </h2>
-            <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Contact us with your requirements and we'll help you find the
               exact part you need.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button
-                variant="secondary"
-                size="xl"
-                className="bg-background text-foreground hover:bg-background/90"
-                asChild
-              >
+              <Button variant="hero" size="xl" asChild>
                 <Link to="/contact">
                   Contact Us
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
-              <Button variant="whatsapp" size="xl" asChild>
+              <Button variant="heroOutline" size="xl" asChild>
                 <a
-                  href="https://wa.me/94740505718"
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

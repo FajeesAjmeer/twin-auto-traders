@@ -2,6 +2,21 @@ import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase, type Review } from "@/lib/supabase";
 
+/**
+ * GOOGLE REVIEWS WIDGET — ACTION NEEDED
+ * ---------------------------------------------------------------
+ * 1. Sign up on a widget provider (e.g. Elfsight, EmbedSocial, Trustmary).
+ * 2. Connect your Twin Auto Traders Google Business Profile.
+ * 3. The provider gives you an embed snippet — usually a <div> with a
+ *    data-id/widget-id plus a <script> tag that loads their widget.
+ * 4. Replace the <div id="google-reviews-widget"> block below with that
+ *    snippet. Most providers' widgets are pure HTML/JS and drop in as-is.
+ * Until step 4 is done, the site shows your existing Supabase reviews
+ * as a working fallback so this section is never empty.
+ * ---------------------------------------------------------------
+ */
+const GOOGLE_REVIEWS_WIDGET_READY = false;
+
 const Testimonials = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +55,11 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {loading ? (
+        {GOOGLE_REVIEWS_WIDGET_READY ? (
+          <div id="google-reviews-widget">
+            {/* Paste your provider's embed snippet here, replacing this comment. */}
+          </div>
+        ) : loading ? (
           <div className="text-center text-muted-foreground py-8">Loading reviews...</div>
         ) : (
           <div className="grid md:grid-cols-3 gap-6">

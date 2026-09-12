@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: "Home", path: "/" },
+  { name: "Japanese Parts", path: "/products" },
+  { name: "Future Mobility", path: "/#future-mobility" },
   { name: "About Us", path: "/about" },
-  { name: "Products", path: "/products" },
   { name: "Contact", path: "/contact" },
-  { name: "Review", path: "/review" },
 ];
+
+const WHATSAPP_NUMBER = "94740505718"; // wa.me needs country code, no + or spaces
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,13 +20,13 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-accent/95 backdrop-blur-sm border-b border-border/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex flex-col">
-              <span className="font-heading text-lg md:text-xl font-bold text-accent-foreground leading-tight">
+              <span className="font-heading text-lg md:text-xl font-bold text-foreground leading-tight">
                 Twin Auto
               </span>
               <span className="text-xs text-muted-foreground uppercase tracking-wider">
@@ -42,7 +44,7 @@ const Navbar = () => {
                 className={`font-medium transition-colors duration-200 ${
                   isActive(link.path)
                     ? "text-primary"
-                    : "text-accent-foreground hover:text-primary"
+                    : "text-foreground hover:text-primary"
                 }`}
               >
                 {link.name}
@@ -53,9 +55,13 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Button variant="hero" size="lg" asChild>
-              <a href="tel:+94740505718">
-                <Phone className="w-4 h-4" />
-                Call Now
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp Us
               </a>
             </Button>
           </div>
@@ -63,7 +69,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-accent-foreground"
+            className="md:hidden p-2 text-foreground"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -72,7 +78,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border/20 animate-fade-in">
+          <div className="md:hidden py-4 border-t border-border animate-fade-in">
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
@@ -82,7 +88,7 @@ const Navbar = () => {
                   className={`py-3 px-4 rounded-lg font-medium transition-colors ${
                     isActive(link.path)
                       ? "bg-primary text-primary-foreground"
-                      : "text-accent-foreground hover:bg-secondary"
+                      : "text-foreground hover:bg-secondary"
                   }`}
                 >
                   {link.name}
@@ -90,9 +96,13 @@ const Navbar = () => {
               ))}
               <div className="pt-4 px-4">
                 <Button variant="hero" size="lg" className="w-full" asChild>
-                  <a href="tel:+94740505718">
-                    <Phone className="w-4 h-4" />
-                    Call Now
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp Us
                   </a>
                 </Button>
               </div>

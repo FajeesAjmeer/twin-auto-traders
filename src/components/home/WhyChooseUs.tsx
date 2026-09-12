@@ -29,7 +29,7 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 bg-accent">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
@@ -37,12 +37,12 @@ const WhyChooseUs = () => {
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
               Why Choose Us
             </span>
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-accent-foreground mt-2 mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-6">
               Your Trusted Partner in Auto Parts
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              With over 01 years of experience in the automotive industry, we've
-              built our reputation on quality products and exceptional customer
+              As a growing name in the automotive industry, we've built our
+              reputation on quality products and exceptional customer
               service.
             </p>
 
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
                     <feature.icon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-lg font-semibold text-accent-foreground mb-1">
+                    <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
                       {feature.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">
@@ -70,9 +70,9 @@ const WhyChooseUs = () => {
             <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 flex items-center justify-center">
               <div className="text-center">
                 <div className="font-heading text-7xl md:text-8xl font-bold text-primary mb-4">
-                  01+
+                  1+
                 </div>
-                <div className="text-xl text-accent-foreground font-medium">
+                <div className="text-xl text-foreground font-medium">
                   Years of Excellence
                 </div>
                 <div className="mt-6 flex justify-center gap-8">

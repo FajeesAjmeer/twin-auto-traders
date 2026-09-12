@@ -8,39 +8,34 @@ import { Label } from "@/components/ui/label";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { usePageMeta } from "@/hooks/usePageMeta";
+
+const BUSINESS_EMAIL = "twinautotraders@gmail.com";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", phone: "", message: "" });
-  const [loading, setLoading] = useState(false);
+  usePageMeta(
+    "Contact Us | Twin Auto Traders",
+    "Get in touch with Twin Auto Traders in Kalmunai, Sri Lanka — call, WhatsApp, or email us for genuine Japanese auto parts."
+  );
+
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill all fields");
       return;
     }
-    setLoading(true);
-    try {
-      const res = await fetch("https://ywirzvsfnutdryllbqqh.supabase.co/functions/v1/contact-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
-        toast.success("Message sent! We'll get back to you soon.");
-        setFormData({ name: "", phone: "", message: "" });
-      } else {
-        throw new Error("Failed");
-      }
-    } catch {
-      toast.error("Something went wrong. Please try WhatsApp instead.");
-    }
-    setLoading(false);
+    const subject = encodeURIComponent(`Website enquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -51,7 +46,7 @@ const Contact = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
               <span className="text-primary font-semibold uppercase tracking-wider text-sm">Contact Us</span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-accent-foreground mt-2 mb-6">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-6">
                 Get in <span className="text-gradient">Touch</span>
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -125,7 +120,7 @@ const Contact = () => {
                   <Button variant="hero" size="lg" asChild>
                     <a href="tel:+94740505718"><Phone className="w-4 h-4" />Call Now</a>
                   </Button>
-                  <Button variant="whatsapp" size="lg" asChild>
+                  <Button variant="heroOutline" size="lg" asChild>
                     <a href="https://wa.me/94740505718" target="_blank" rel="noopener noreferrer">
                       <MessageCircle className="w-4 h-4" />WhatsApp
                     </a>
@@ -137,7 +132,7 @@ const Contact = () => {
                 <h2 className="font-heading text-2xl font-bold mb-2">Send us a Message</h2>
                 <p className="text-sm text-muted-foreground mb-6 flex items-center gap-2">
                   <Mail className="w-4 h-4 text-primary" />
-                  Your message will be sent to our email
+                  Opens your email app, addressed to us
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
@@ -145,16 +140,16 @@ const Contact = () => {
                     <Input id="name" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number *</Label>
-                    <Input id="phone" name="phone" type="tel" placeholder="+94 7XX XXX XXX" value={formData.phone} onChange={handleChange} />
+                    <Label htmlFor="email">Email *</Label>
+                    <Input id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message *</Label>
                     <Textarea id="message" name="message" placeholder="Tell us about the parts you need..." rows={5} value={formData.message} onChange={handleChange} />
                   </div>
-                  <Button type="submit" variant="hero" size="lg" className="w-full" disabled={loading}>
+                  <Button type="submit" variant="hero" size="lg" className="w-full">
                     <Mail className="w-4 h-4" />
-                    {loading ? "Sending..." : "Send Message"}
+                    Send Message
                   </Button>
                 </form>
               </div>

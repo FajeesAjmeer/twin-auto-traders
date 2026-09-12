@@ -3,8 +3,8 @@ import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { Target, Heart, Users, Award } from "lucide-react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const values = [
   {
@@ -34,6 +34,11 @@ const values = [
 ];
 
 const About = () => {
+  usePageMeta(
+    "About Us | Twin Auto Traders",
+    "Learn about Twin Auto Traders — a trusted supplier of genuine Japanese vehicle spare parts based in Kalmunai, Sri Lanka."
+  );
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -45,7 +50,7 @@ const About = () => {
               <span className="text-primary font-semibold uppercase tracking-wider text-sm">
                 About Us
               </span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-accent-foreground mt-2 mb-6">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-6">
                 Your Trusted <span className="text-gradient">Auto Partner</span>
               </h1>
               <p className="text-xl text-muted-foreground">
@@ -89,18 +94,18 @@ const About = () => {
               </div>
 
               <div className="relative">
-                <div className="aspect-square bg-accent rounded-2xl p-8 flex items-center justify-center">
+                <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 flex items-center justify-center">
                   <div className="text-center">
                     <div className="font-heading text-6xl md:text-7xl font-bold text-primary mb-2">
                       2025
                     </div>
-                    <div className="text-xl text-accent-foreground font-medium mb-6">
+                    <div className="text-xl text-foreground font-medium mb-6">
                       Established
                     </div>
                     <div className="grid grid-cols-2 gap-6 mt-8">
                       <div className="text-center">
                         <div className="font-heading text-3xl font-bold text-primary">
-                          01+
+                          1+
                         </div>
                         <div className="text-sm text-muted-foreground">
                           Years

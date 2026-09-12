@@ -1,49 +1,81 @@
-import { Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
+const WHATSAPP_NUMBER = "94740505718";
+
 const Hero = () => {
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  const showVideo = !videoFailed && !prefersReducedMotion;
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-accent/95 via-accent/80 to-accent/60" />
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background: video if available and motion is OK, image fallback otherwise */}
+      <div className="absolute inset-0">
+        {showVideo && (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/hero-video.mp4"
+            poster={heroBg}
+            autoPlay
+            muted
+            loop
+            playsInline
+            onError={() => setVideoFailed(true)}
+          />
+        )}
+        {!showVideo && (
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroBg})` }}
+          />
+        )}
+        {/* No full-bleed overlay — the video/photo should be fully visible.
+            Text readability is handled by the frosted-glass panel below instead. */}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-20">
-        <div className="max-w-3xl">
+      <div className="relative z-10 container mx-auto px-4 py-24 md:py-0">
+        <div className="max-w-2xl bg-background/75 backdrop-blur-md border border-border/40 rounded-2xl md:rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6 animate-fade-in">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-primary-foreground">
-              Driven by Trust, Powered by Quality.
+            <span className="text-sm font-medium text-foreground">
+              Trusted Japanese Auto Parts Supplier
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-bold text-accent-foreground mb-6 animate-slide-up">
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-slide-up">
             Twin Auto <span className="text-gradient">Traders</span>
           </h1>
 
-          {/* Tagline */}
+          {/* Brand positioning line */}
           <p
-            className="text-xl md:text-2xl text-muted-foreground mb-4 animate-slide-up"
+            className="text-xl md:text-2xl text-foreground/90 mb-4 animate-slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            Trusted Auto Spare Parts & Imported Vehicles
+            Japanese Vehicle Parts Today. Electric Mobility Tomorrow.
           </p>
 
           {/* Description */}
           <p
-            className="text-lg text-muted-foreground/80 mb-8 max-w-xl animate-slide-up"
+            className="text-lg text-muted-foreground mb-8 max-w-xl animate-slide-up"
             style={{ animationDelay: "0.2s" }}
           >
-            Your one-stop destination for quality Japanese car parts,
+            Your one-stop destination for genuine Japanese car parts,
             high-capacity bike components, and premium vehicle accessories.
           </p>
 
@@ -53,32 +85,28 @@ const Hero = () => {
             style={{ animationDelay: "0.3s" }}
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="tel:+94740505718">
-                <Phone className="w-5 h-5" />
-                Call Now
-              </a>
+              <Link to="/products">
+                Browse Parts
+                <ArrowRight className="w-5 h-5" />
+              </Link>
             </Button>
-            <Button variant="whatsapp" size="xl" asChild>
+            <Button variant="heroOutline" size="xl" asChild>
               <a
-                href="https://wa.me/+94740505718"
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                  "Hi, I'm looking for a spare part."
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <MessageCircle className="w-5 h-5" />
-                WhatsApp
+                Request a Part
               </a>
-            </Button>
-            <Button variant="heroOutline" size="xl" asChild>
-              <Link to="/products">
-                View Products
-                <ArrowRight className="w-5 h-5" />
-              </Link>
             </Button>
           </div>
 
           {/* Stats */}
           <div
-            className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-border/20 animate-fade-in"
+            className="flex flex-wrap gap-8 mt-12 pt-6 border-t border-border animate-fade-in"
             style={{ animationDelay: "0.5s" }}
           >
             <div>

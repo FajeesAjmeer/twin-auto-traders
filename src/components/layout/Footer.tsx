@@ -3,7 +3,7 @@ import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram } from "lucide-
 
 const Footer = () => {
   return (
-    <footer className="bg-accent text-accent-foreground">
+    <footer className="bg-card text-foreground border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
@@ -52,7 +52,9 @@ const Footer = () => {
               {[
                 { to: "/", label: "Home" },
                 { to: "/about", label: "About Us" },
-                { to: "/products", label: "Products & Services" },
+                { to: "/products", label: "Japanese Parts" },
+                { to: "/#future-mobility", label: "Future Mobility" },
+                { to: "/support", label: "Support" },
                 { to: "/contact", label: "Contact Us" },
                 { to: "/review", label: "Leave a Review" },
               ].map((link) => (
@@ -99,12 +101,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/20">
+        <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Twin Auto Traders. All rights reserved.
             </p>
-            <p className="text-sm text-muted-foreground">Quality Parts. Trusted Service.</p>
+            <div className="flex items-center gap-4">
+              <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Terms & Conditions
+              </Link>
+            </div>
           </div>
         </div>
       </div>
