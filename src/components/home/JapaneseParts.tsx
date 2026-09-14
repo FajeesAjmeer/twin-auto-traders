@@ -1,8 +1,21 @@
-import { Car, ArrowRight, Settings, Disc, Waves, Zap, Sparkles, PaintBucket } from "lucide-react";
+import { ArrowRight, Settings, Disc, Waves, Zap, Sparkles, PaintBucket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import toyotaLogo from "@/assets/brands/toyota-logo.svg";
+import hondaLogo from "@/assets/brands/honda-logo.webp";
+import nissanLogo from "@/assets/brands/nissan-logo.jpg";
+import suzukiLogo from "@/assets/brands/suzuki-logo.png";
+import mitsubishiLogo from "@/assets/brands/mitsubishi-logo.png";
+import lexusLogo from "@/assets/brands/lexus-logo.webp";
 
-const brands = ["Toyota", "Honda", "Nissan", "Suzuki", "Mitsubishi", "Lexus"];
+const brands = [
+  { name: "Toyota", logo: toyotaLogo },
+  { name: "Honda", logo: hondaLogo },
+  { name: "Nissan", logo: nissanLogo },
+  { name: "Suzuki", logo: suzukiLogo },
+  { name: "Mitsubishi", logo: mitsubishiLogo },
+  { name: "Lexus", logo: lexusLogo },
+];
 
 const categories = [
   { icon: Settings, name: "Engine" },
@@ -35,13 +48,19 @@ const JapaneseParts = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
           {brands.map((brand) => (
             <Link
-              key={brand}
-              to={`/products?brand=${encodeURIComponent(brand)}`}
-              className="group flex flex-col items-center justify-center gap-3 bg-card rounded-xl py-8 px-4 card-shadow hover:elevated-shadow border border-transparent hover:border-primary/40 transition-all duration-300"
+              key={brand.name}
+              to={`/products?brand=${encodeURIComponent(brand.name)}`}
+              className="group flex flex-col items-center justify-center gap-3 bg-card rounded-xl py-6 px-4 card-shadow hover:elevated-shadow border border-transparent hover:border-primary/40 transition-all duration-300"
             >
-              <Car className="w-8 h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-              <span className="font-heading font-semibold text-foreground">
-                {brand}
+              <div className="w-full h-16 bg-white rounded-lg flex items-center justify-center p-3">
+                <img
+                  src={brand.logo}
+                  alt={`${brand.name} logo`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+              <span className="font-heading font-semibold text-foreground text-sm">
+                {brand.name}
               </span>
             </Link>
           ))}
