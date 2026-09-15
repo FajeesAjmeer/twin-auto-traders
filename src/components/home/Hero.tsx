@@ -2,12 +2,12 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
 
 const WHATSAPP_NUMBER = "94740505718";
 
 const Hero = () => {
   const [videoFailed, setVideoFailed] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -22,27 +22,27 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background: video if available and motion is OK, image fallback otherwise */}
-      <div className="absolute inset-0">
+      {/* Background: solid placeholder that fades into the video once it's ready.
+          No fallback image file needed — pure CSS/code. */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary to-background">
         {showVideo && (
           <video
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              videoReady ? "opacity-100" : "opacity-0"
+            }`}
             src="/hero-video.mp4"
-            poster={heroBg}
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
+            // @ts-expect-error -- fetchPriority is valid HTML but not yet in React's TS types
+            fetchpriority="high"
+            onCanPlay={() => setVideoReady(true)}
             onError={() => setVideoFailed(true)}
           />
         )}
-        {!showVideo && (
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroBg})` }}
-          />
-        )}
-        {/* No full-bleed overlay — the video/photo should be fully visible.
+        {/* No full-bleed overlay — the video should be fully visible.
             Text readability is handled by the frosted-glass panel below instead. */}
       </div>
 
