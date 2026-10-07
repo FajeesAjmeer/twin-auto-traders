@@ -56,7 +56,6 @@ const Footer = () => {
                 { to: "/#future-mobility", label: "Future Mobility" },
                 { to: "/support", label: "Support" },
                 { to: "/contact", label: "Contact Us" },
-                { to: "/review", label: "Leave a Review" },
               ].map((link) => (
                 <Link key={link.to} to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   {link.label}
