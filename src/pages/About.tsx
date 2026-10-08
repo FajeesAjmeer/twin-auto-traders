@@ -113,7 +113,7 @@ const About = () => {
                       </div>
                       <div className="text-center">
                         <div className="font-heading text-3xl font-bold text-primary">
-                          1K+
+                          300+
                         </div>
                         <div className="text-sm text-muted-foreground">
                           Parts
@@ -121,7 +121,7 @@ const About = () => {
                       </div>
                       <div className="text-center">
                         <div className="font-heading text-3xl font-bold text-primary">
-                          150+
+                          500+
                         </div>
                         <div className="text-sm text-muted-foreground">
                           Customers
