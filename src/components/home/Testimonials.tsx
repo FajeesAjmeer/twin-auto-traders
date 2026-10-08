@@ -51,7 +51,7 @@ const Testimonials = () => {
             What Our Customers Say
           </h2>
           <p className="text-muted-foreground text-lg">
-            150+ happy customers across Eastern Province trust Twin Auto Traders.
+            500+ happy customers across Eastern Province trust Twin Auto Traders.
           </p>
         </div>
 
