@@ -1,12 +1,12 @@
 import { ArrowRight, Settings, Disc, Waves, Zap, Sparkles, PaintBucket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import toyotaLogo from "@/assets/toyota-logo.svg";
-import hondaLogo from "@/assets/honda-logo.webp";
+import toyotaLogo from "@/assets/toyota-logo.jpg";
+import hondaLogo from "@/assets/honda-logo.jpg";
 import nissanLogo from "@/assets/nissan-logo.jpg";
-import suzukiLogo from "@/assets/suzuki-logo.png";
-import mitsubishiLogo from "@/assets/mitsubishi-logo.png";
-import lexusLogo from "@/assets/lexus-logo.webp";
+import suzukiLogo from "@/assets/suzuki-logo.jpg";
+import mitsubishiLogo from "@/assets/mitsubishi-logo.jpg";
+import lexusLogo from "@/assets/lexus-logo.jpg";
 
 const brands = [
   { name: "Toyota", logo: toyotaLogo },
