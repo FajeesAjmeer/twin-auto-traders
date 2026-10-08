@@ -119,7 +119,7 @@ const Hero = () => {
             </div>
             <div>
               <div className="font-heading text-3xl md:text-4xl font-bold text-primary">
-                1K+
+                300+
               </div>
               <div className="text-sm text-muted-foreground">
                 Parts in Stock
