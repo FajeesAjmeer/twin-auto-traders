@@ -63,143 +63,117 @@ const About = () => {
         </section>
 
         {/* Story Section */}
-        <section className="py-20 bg-secondary">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
-                  Our Story
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Founded with a passion for automobiles, Twin Auto Traders
-                    began as a small auto trading company with a simple mission:
-                    to provide quality spare parts at fair prices with
-                    exceptional service.
-                  </p>
-                  <p>
-                    Over the years, we've grown our inventory to include
-                    imported Japanese cars parts, high-capacity motorcycle
-                    components, and a wide range of vehicle accessories. Despite
-                    our growth, we've maintained our commitment to personalized
-                    service and quality products.
-                  </p>
-                  <p>
-                    Today, we serve a diverse customer base, from individual car
-                    owners to professional mechanics, always with the same
-                    dedication to quality and customer satisfaction that started
-                    our journey.
-                  </p>
-                </div>
-              </div>
 
-              <div className="relative">
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="font-heading text-6xl md:text-7xl font-bold text-primary mb-2">
-                      2025
-                    </div>
-                    <div className="text-xl text-foreground font-medium mb-6">
-                      Established
-                    </div>
-                    <div className="grid grid-cols-2 gap-6 mt-8">
-                      <div className="text-center">
-                        <div className="font-heading text-3xl font-bold text-primary">
-                          1+
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          Years
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-heading text-3xl font-bold text-primary">
-                          300+
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          Parts
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-heading text-3xl font-bold text-primary">
-                          500+
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          Customers
-                        </div>
-                      </div>
-                      <div className="text-center">
-                        <div className="font-heading text-3xl font-bold text-primary">
-                          100%
-                        </div>
-                        <div className="text-sm text-muted-foreground">
-                          Commitment
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+<section className="py-20 bg-secondary">
+  <div className="container mx-auto px-4">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Story Content */}
+      <div>
+        <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+          Driven by Trust, Powered by Quality
+        </span>
 
-        {/* Values Section */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
-                Our Values
-              </h2>
-              <p className="text-muted-foreground text-lg">
-                The principles that guide everything we do at Twin Auto Traders.
-              </p>
-            </div>
+```
+    <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 mt-3">
+      Our Story
+    </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value, index) => (
-                <div
-                  key={index}
-                  className="text-center p-6 bg-card rounded-xl card-shadow"
-                >
-                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="space-y-4 text-muted-foreground leading-relaxed">
+      <p>
+        At Twin Auto Traders, our journey is built on a passion for
+        automobiles and a commitment to delivering quality automotive
+        products at fair prices. Founded with a clear vision, we strive
+        to make reliable spare parts and vehicle accessories accessible
+        to every customer through trusted service and a customer-first
+        approach.
+      </p>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-primary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Experience the Difference?
-            </h2>
-            <p className="text-xl text-primary-foreground/80 mb-8">
-              Visit our store or contact us to find the parts you need.
-            </p>
-            <Button
-              variant="secondary"
-              size="xl"
-              className="bg-background text-foreground hover:bg-background/90"
-              asChild
-            >
-              <Link to="/contact">Contact Us Today</Link>
-            </Button>
-          </div>
-        </section>
-      </main>
-      <Footer />
-      <WhatsAppFloat />
+      <p>
+        Our product range includes Japanese vehicle spare parts,
+        ev vehicle components, and a wide selection of
+        automotive accessories. We focus on product quality,
+        competitive pricing, and personalized service to help our
+        customers make confident purchasing decisions.
+      </p>
+
+      <p>
+        Today, Twin Auto Traders continues to build lasting relationships
+        with individual vehicle owners, vehicle enthusiasts,
+        professional mechanics, and automotive businesses. As we grow,
+        our commitment remains unchanged: to earn your trust through
+        quality, integrity, and dependable service.
+      </p>
     </div>
-  );
-};
 
-export default About;
+    <div className="mt-8 border-l-4 border-primary pl-4">
+      <p className="font-heading text-lg md:text-xl font-semibold text-foreground">
+        Twin Auto Traders — Your Trusted Partner in Automotive Excellence.
+      </p>
+    </div>
+  </div>
+
+  {/* Brand Highlights */}
+  <div className="relative">
+    <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 flex items-center justify-center">
+      <div className="text-center max-w-md">
+        <div className="font-heading text-5xl md:text-7xl font-bold text-primary mb-3">
+          TAT
+        </div>
+
+        <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-3">
+          Built on Trust.
+          <br />
+          Driven by Quality.
+        </h3>
+
+        <p className="text-muted-foreground leading-relaxed mb-8">
+          Committed to quality automotive products, fair pricing,
+          and dependable customer service.
+        </p>
+
+        <div className="grid grid-cols-2 gap-4 mt-6">
+          <div className="bg-background/70 rounded-xl p-4">
+            <div className="font-heading text-lg font-bold text-primary">
+              Quality
+            </div>
+            <div className="text-sm text-muted-foreground mt-1">
+              Product Focus
+            </div>
+          </div>
+
+          <div className="bg-background/70 rounded-xl p-4">
+            <div className="font-heading text-lg font-bold text-primary">
+              Trust
+            </div>
+            <div className="text-sm text-muted-foreground mt-1">
+              Customer First
+            </div>
+          </div>
+
+          <div className="bg-background/70 rounded-xl p-4">
+            <div className="font-heading text-lg font-bold text-primary">
+              Value
+            </div>
+            <div className="text-sm text-muted-foreground mt-1">
+              Fair Pricing
+            </div>
+          </div>
+
+          <div className="bg-background/70 rounded-xl p-4">
+            <div className="font-heading text-lg font-bold text-primary">
+              Service
+            </div>
+            <div className="text-sm text-muted-foreground mt-1">
+              Customer Support
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
