@@ -76,7 +76,7 @@ const Hero = () => {
             style={{ animationDelay: "0.2s" }}
           >
             Your one-stop destination for genuine Japanese car parts,
-            high-capacity bike components, and premium vehicle accessories.
+            electric vehicle components, and premium vehicle accessories.
           </p>
 
           {/* CTA Buttons */}
