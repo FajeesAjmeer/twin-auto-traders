@@ -15,7 +15,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground">
-              Your trusted source for quality auto spare parts, imported Japanese vehicles, and motorcycle accessories. Based in Kalmunai, Sri Lanka.
+              Your trusted source for quality auto spare parts, imported Japanese vehicles, and electric vehicle components. Based in Kalmunai, Sri Lanka.
             </p>
             <div className="flex gap-3 pt-2">
               <a href="https://www.facebook.com/share/1HiqFvUcWe/" target="_blank" rel="noopener noreferrer"
@@ -26,9 +26,9 @@ const Footer = () => {
                 className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="Instagram">
                 <Instagram className="w-4 h-4 text-primary group-hover:text-white" />
               </a>
-              <a href="https://wa.me/94740505718" target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 bg-[hsl(142,70%,45%)]/10 rounded-lg flex items-center justify-center hover:bg-[hsl(142,70%,45%)] transition-colors group" aria-label="WhatsApp">
-                <MessageCircle className="w-4 h-4 text-[hsl(142,70%,45%)] group-hover:text-white" />
+                          <a href="https://wa.me/94740505718" target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="WhatsApp">
+                <MessageCircle className="w-4 h-4 text-primary group-hover:text-white" />
               </a>
               <a href="https://www.tiktok.com/@twin_auto_traders" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="TikTok">
