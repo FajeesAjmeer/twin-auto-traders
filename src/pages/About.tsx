@@ -47,16 +47,17 @@ const About = () => {
         <section className="py-20 hero-gradient">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-              <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-                About Us
+     <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+                About Twin Auto Traders
               </span>
               <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-6">
-                Your Trusted <span className="text-gradient">Auto Partner</span>
+                Driven by <span className="text-gradient">Trust, Powered by Quality.</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                Twin Auto Traders is a small business dedicated to providing
-                quality auto spare parts and trusted service to vehicle owners
-                everywhere.
+                Your trusted destination for quality automotive spare parts and
+                vehicle accessories. We are committed to delivering reliable
+                products, competitive pricing, and customer-focused service to
+                vehicle owners, car enthusiasts, and automotive professionals.
               </p>
             </div>
           </div>
@@ -70,25 +71,33 @@ const About = () => {
                 <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
                   Our Story
                 </h2>
-                <div className="space-y-4 text-muted-foreground">
+                                <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Founded with a passion for automobiles, Twin Auto Traders
-                    began as a small auto trading company with a simple mission:
-                    to provide quality spare parts at fair prices with
-                    exceptional service.
+                    At Twin Auto Traders, our journey is built on a passion for
+                    automobiles and a commitment to delivering quality
+                    automotive products at fair prices. Founded with a clear
+                    vision, we strive to make reliable spare parts and vehicle
+                    accessories accessible to every customer through trusted
+                    service and a customer-first approach.
                   </p>
                   <p>
-                    Over the years, we've grown our inventory to include
-                    imported Japanese cars parts, high-capacity motorcycle
-                    components, and a wide range of vehicle accessories. Despite
-                    our growth, we've maintained our commitment to personalized
-                    service and quality products.
+                    Our product range includes Japanese vehicle spare parts,
+                    electric vehicle components, and a wide selection of
+                    automotive accessories. We focus on product quality,
+                    competitive pricing, and personalized service to help our
+                    customers make confident purchasing decisions.
                   </p>
                   <p>
-                    Today, we serve a diverse customer base, from individual car
-                    owners to professional mechanics, always with the same
-                    dedication to quality and customer satisfaction that started
-                    our journey.
+                    Today, Twin Auto Traders continues to build lasting
+                    relationships with individual vehicle owners, car
+                    enthusiasts, professional mechanics, and automotive
+                    businesses. As we grow, our commitment remains unchanged: to
+                    earn your trust through quality, integrity, and dependable
+                    service.
+                  </p>
+                  <p className="font-semibold text-foreground">
+                    Twin Auto Traders — Your Trusted Partner in Automotive
+                    Excellence.
                   </p>
                 </div>
               </div>
