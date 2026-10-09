@@ -50,7 +50,7 @@ const About = () => {
      <span className="text-primary font-semibold uppercase tracking-wider text-sm">
                 About Twin Auto Traders
               </span>
-              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-2 mb-6">
+              <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-2 mb-6">
                 Driven by <span className="text-gradient">Trust, Powered by Quality.</span>
               </h1>
               <p className="text-xl text-muted-foreground">
