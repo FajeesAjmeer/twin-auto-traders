@@ -96,7 +96,7 @@ const About = () => {
                     service.
                   </p>
                   <p className="font-semibold text-foreground">
-                    Twin Auto Traders — Your Trusted Partner in Automotive
+                    Twin Auto Traders - Your Trusted Partner in Automotive
                     Excellence.
                   </p>
                 </div>
