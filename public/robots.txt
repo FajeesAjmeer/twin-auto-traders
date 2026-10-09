@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://twin-auto-traders.vercel.app/sitemap.xml

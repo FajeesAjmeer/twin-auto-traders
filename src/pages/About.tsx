@@ -34,10 +34,12 @@ const values = [
 ];
 
 const About = () => {
-  usePageMeta(
-    "About Us | Twin Auto Traders",
-    "Learn about Twin Auto Traders — a trusted supplier of genuine Japanese vehicle spare parts based in Kalmunai, Sri Lanka."
-  );
+  usePageMeta({
+    title: "About Us | Twin Auto Traders",
+    description:
+      "Learn about Twin Auto Traders — a trusted supplier of genuine Japanese vehicle spare parts based in Kalmunai, Sri Lanka.",
+    path: "/about",
+  });
 
   return (
     <div className="min-h-screen">

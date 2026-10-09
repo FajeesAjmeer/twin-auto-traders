@@ -3,21 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Twin Auto Traders | Quality Auto Spare Parts – Kalmunai, Sri Lanka</title>
-    <meta name="description" content="Twin Auto Traders – Kalmunai's trusted source for Japanese car spare parts, high-capacity motorcycle components, and vehicle accessories. Custom orders available. Call +94 740 505 718." />
+    <title>Twin Auto Traders | Genuine Japanese Auto Parts in Sri Lanka</title>
+    <meta name="description" content="Twin Auto Traders – Kalmunai's trusted source for Japanese car spare parts, EV components, and vehicle accessories. Custom orders available. Call +94 740 505 718." />
     <meta name="author" content="Twin Auto Traders" />
-    <meta name="keywords" content="auto parts Kalmunai, Japanese car parts Sri Lanka, motorcycle spare parts, vehicle accessories, spare parts Ampara, Toyota parts, Honda parts, Nissan parts" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Twin Auto Traders | Quality Auto Spare Parts – Kalmunai" />
-    <meta property="og:description" content="Your trusted source for quality Japanese car spare parts, motorcycle components, and vehicle accessories in Kalmunai, Sri Lanka." />
+    <!-- Open Graph (fallback defaults for crawlers/scrapers that don't run
+         JavaScript; usePageMeta overrides these per-page at runtime so a
+         browser user always sees the current route's own tags). -->
+    <meta property="og:title" content="Twin Auto Traders | Genuine Japanese Auto Parts in Sri Lanka" />
+    <meta property="og:description" content="Your trusted source for quality Japanese car spare parts, EV components, and vehicle accessories in Kalmunai, Sri Lanka." />
+    <meta property="og:image" content="https://twin-auto-traders.vercel.app/og-image.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_LK" />
+    <meta property="og:site_name" content="Twin Auto Traders" />
+    <meta property="og:url" content="https://twin-auto-traders.vercel.app/" />
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://twinautotraders.lk/" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Twin Auto Traders | Genuine Japanese Auto Parts in Sri Lanka" />
+    <meta name="twitter:description" content="Your trusted source for quality Japanese car spare parts, EV components, and vehicle accessories in Kalmunai, Sri Lanka." />
+    <meta name="twitter:image" content="https://twin-auto-traders.vercel.app/og-image.jpg" />
+
+    <!-- Canonical: must match the live production domain. If a custom
+         domain (e.g. twinautotraders.lk) is ever connected in Vercel,
+         update SITE_URL in src/config/seo.ts AND this line together. -->
+    <link rel="canonical" href="https://twin-auto-traders.vercel.app/" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Organization structured data: static, identical on every route, so
+         it lives here rather than being injected per-page by JS. Only
+         fields we can actually verify are included — no invented address,
+         ratings, or hours. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AutoPartsStore",
+        "name": "Twin Auto Traders",
+        "url": "https://twin-auto-traders.vercel.app/",
+        "logo": "https://twin-auto-traders.vercel.app/og-image.jpg",
+        "image": "https://twin-auto-traders.vercel.app/og-image.jpg",
+        "telephone": "+94740505718",
+        "email": "twinautotraders@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kalmunai",
+          "addressRegion": "Eastern Province",
+          "addressCountry": "LK"
+        },
+        "sameAs": [
+          "https://www.facebook.com/share/1HiqFvUcWe/",
+          "https://www.instagram.com/twin_auto_traders",
+          "https://www.tiktok.com/@twin_auto_traders"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

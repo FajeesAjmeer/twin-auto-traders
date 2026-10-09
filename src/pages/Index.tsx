@@ -10,10 +10,12 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const Index = () => {
-  usePageMeta(
-    "Twin Auto Traders | Genuine Japanese Auto Parts in Sri Lanka",
-    "Twin Auto Traders supplies genuine Japanese vehicle spare parts island-wide in Sri Lanka, with growing support for EV components. Browse parts or request one on WhatsApp."
-  );
+  usePageMeta({
+    title: "Twin Auto Traders | Genuine Japanese Auto Parts in Sri Lanka",
+    description:
+      "Twin Auto Traders supplies genuine Japanese vehicle spare parts island-wide in Sri Lanka, with growing support for EV components. Browse parts or request one on WhatsApp.",
+    path: "/",
+  });
 
   return (
     <div className="min-h-screen">

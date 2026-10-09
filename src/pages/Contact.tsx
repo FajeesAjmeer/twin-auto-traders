@@ -13,10 +13,12 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 const BUSINESS_EMAIL = "twinautotraders@gmail.com";
 
 const Contact = () => {
-  usePageMeta(
-    "Contact Us | Twin Auto Traders",
-    "Get in touch with Twin Auto Traders in Kalmunai, Sri Lanka — call, WhatsApp, or email us for genuine Japanese auto parts."
-  );
+  usePageMeta({
+    title: "Contact Us | Twin Auto Traders",
+    description:
+      "Get in touch with Twin Auto Traders in Kalmunai, Sri Lanka — call, WhatsApp, or email us for genuine Japanese auto parts.",
+    path: "/contact",
+  });
 
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 

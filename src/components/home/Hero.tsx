@@ -35,7 +35,7 @@ const Hero = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             // @ts-expect-error -- fetchPriority is valid HTML but not yet in React's TS types
             fetchpriority="high"
             onCanPlay={() => setVideoReady(true)}

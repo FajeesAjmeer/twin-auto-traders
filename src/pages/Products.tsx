@@ -86,10 +86,12 @@ const specialServices = [
 ];
 
 const Products = () => {
-  usePageMeta(
-    "Products & Services | Twin Auto Traders",
-    "Browse genuine and aftermarket auto parts for Japanese vehicles, motorcycle components, and premium accessories at Twin Auto Traders."
-  );
+  usePageMeta({
+    title: "Products & Services | Twin Auto Traders",
+    description:
+      "Browse genuine and aftermarket auto parts for Japanese vehicles, motorcycle components, and premium accessories at Twin Auto Traders.",
+    path: "/products",
+  });
 
   return (
     <div className="min-h-screen">

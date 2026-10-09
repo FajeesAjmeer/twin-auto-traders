@@ -4,10 +4,11 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const Terms = () => {
-  usePageMeta(
-    "Terms & Conditions | Twin Auto Traders",
-    "Terms and conditions for using the Twin Auto Traders website and ordering from us."
-  );
+  usePageMeta({
+    title: "Terms & Conditions | Twin Auto Traders",
+    description: "Terms and conditions for using the Twin Auto Traders website and ordering from us.",
+    path: "/terms",
+  });
 
   return (
     <div className="min-h-screen">

@@ -4,10 +4,11 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const PrivacyPolicy = () => {
-  usePageMeta(
-    "Privacy Policy | Twin Auto Traders",
-    "How Twin Auto Traders collects, uses, and protects your information."
-  );
+  usePageMeta({
+    title: "Privacy Policy | Twin Auto Traders",
+    description: "How Twin Auto Traders collects, uses, and protects your information.",
+    path: "/privacy",
+  });
 
   return (
     <div className="min-h-screen">

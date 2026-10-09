@@ -37,10 +37,12 @@ const faqs = [
 ];
 
 const Support = () => {
-  usePageMeta(
-    "Support | Twin Auto Traders",
-    "Request a part, check delivery and warranty information, or read frequently asked questions at Twin Auto Traders."
-  );
+  usePageMeta({
+    title: "Support | Twin Auto Traders",
+    description:
+      "Request a part, check delivery and warranty information, or read frequently asked questions at Twin Auto Traders.",
+    path: "/support",
+  });
 
   return (
     <div className="min-h-screen">
