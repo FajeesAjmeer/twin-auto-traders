@@ -67,7 +67,7 @@ const WhyChooseUs = () => {
 
           {/* Visual */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl p-8 flex items-center justify-center">
+            <div className="aspect-square bg-gradient-to-br from-[#bebebe] to-[#e0e0e0] rounded-2xl p-8 flex items-center justify-center">
               <div className="text-center">
                 <div className="font-heading text-7xl md:text-8xl font-bold text-primary mb-4">
                   1+
