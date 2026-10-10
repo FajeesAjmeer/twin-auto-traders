@@ -178,7 +178,7 @@ const Products = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-card relative overflow-hidden border-y border-border">
+        <section className="py-20 bg-secondary relative overflow-hidden border-y border-border">
           <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               Need a Specific Part?

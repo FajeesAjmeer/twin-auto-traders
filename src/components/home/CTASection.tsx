@@ -6,7 +6,7 @@ const WHATSAPP_NUMBER = "94740505718";
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-card relative overflow-hidden border-y border-border">
+    <section className="py-20 bg-secondary relative overflow-hidden border-y border-border">
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
