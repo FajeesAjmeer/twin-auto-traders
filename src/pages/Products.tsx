@@ -12,6 +12,7 @@ import {
   Ship,
   Car,
   ShoppingCart,
+  Zap,
   Package,
   ArrowRight,
   MessageCircle,
@@ -56,6 +57,11 @@ const businessActivities = [
     icon: ShoppingCart,
     title: "Online / E-commerce Sale of Automotive Products",
     description: "Ordering parts and accessories online via our website and WhatsApp.",
+  },
+  {
+    icon: Zap,
+    title: "EV Components",
+    description: "Growing support for electric vehicle components as Sri Lanka's EV market expands.",
   },
 ];
 
