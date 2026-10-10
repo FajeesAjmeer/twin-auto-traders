@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import {
-  Car,
-  Bike,
-  Sparkles,
   Wrench,
+  Sparkles,
   Settings,
+  Store,
+  Ship,
+  Car,
+  ShoppingCart,
   Package,
   ArrowRight,
   MessageCircle,
@@ -17,56 +19,43 @@ import {
 
 const WHATSAPP_NUMBER = "94740505718";
 
-const products = [
+// Our registered business scope — what Twin Auto Traders is licensed and
+// set up to do, not a catalogue of individual parts in stock.
+const businessActivities = [
   {
-    // toyota nissan honda lexus
-    icon: Car,
-    title: "Imported Japanese Cars",
-    description:
-      "Genuine and aftermarket parts for Toyota, Honda, Nissan, Mazda, Subaru, Mitsubishi, and all Japanese brands.",
-    items: ["Toyota", "Nissan", "Honda", "Lexus"],
-  },
-  {
-    icon: Bike,
-    title: "High Capacity Bike Parts",
-    description:
-      "Performance and replacement parts for motorcycles and high-capacity bikes.",
-    items: [
-      "Engine Parts",
-      "Chain & Sprockets",
-      "Brake Pads & Discs",
-      "Air Filters",
-      "Clutch Assemblies",
-      "Exhaust Systems",
-    ],
+    icon: Wrench,
+    title: "Motor Vehicle Spare Parts Trading",
+    description: "Buying and selling genuine and aftermarket spare parts for motor vehicles.",
   },
   {
     icon: Sparkles,
-    title: "Vehicle Accessories",
-    description:
-      "Enhance your vehicle's appearance and functionality with our range of decorative accessories.",
-    items: [
-      "Interior Accessories",
-      "Exterior Styling",
-      "LED Lighting",
-      "Floor Mats",
-      "Seat Covers",
-      "Dashboard Accessories",
-    ],
+    title: "Automotive Accessories",
+    description: "Interior, exterior, and styling accessories for cars and motorcycles.",
   },
   {
-    icon: Wrench,
-    title: "All Car Spare Parts",
-    description:
-      "Comprehensive inventory of spare parts for all vehicle makes and models.",
-    items: [
-      "Engine Components",
-      "Brake Systems",
-      "Suspension Parts",
-      "Electrical Components",
-      "Body Parts",
-      "Filters & Fluids",
-    ],
+    icon: Settings,
+    title: "Vehicle Components",
+    description: "Engine, brake, suspension, and electrical components for a wide range of vehicles.",
+  },
+  {
+    icon: Store,
+    title: "Wholesale & Retail Trading",
+    description: "Supplying individual customers as well as mechanics, workshops, and bulk buyers.",
+  },
+  {
+    icon: Ship,
+    title: "Import & Distribution of Automotive Products",
+    description: "Sourcing automotive products and distributing them across Sri Lanka.",
+  },
+  {
+    icon: Car,
+    title: "Motor Vehicle Trading",
+    description: "Trading in motor vehicles alongside our spare parts business.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Online / E-commerce Sale of Automotive Products",
+    description: "Ordering parts and accessories online via our website and WhatsApp.",
   },
 ];
 
@@ -116,40 +105,34 @@ const Products = () => {
           </div>
         </section>
 
-        {/* Products Grid */}
+        {/* Business Scope */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
-              {products.map((product, index) => (
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+                What We Do
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Twin Auto Traders' registered business activities span the
+                full chain from sourcing to selling.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {businessActivities.map((activity, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-2xl p-8 card-shadow hover:elevated-shadow transition-all duration-300"
+                  className="bg-card rounded-2xl p-6 card-shadow hover:elevated-shadow transition-all duration-300"
                 >
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <product.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <div>
-                      <h2 className="font-heading text-2xl font-bold mb-2">
-                        {product.title}
-                      </h2>
-                      <p className="text-muted-foreground">
-                        {product.description}
-                      </p>
-                    </div>
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                    <activity.icon className="w-6 h-6 text-primary" />
                   </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    {product.items.map((item, itemIndex) => (
-                      <div
-                        key={itemIndex}
-                        className="flex items-center gap-2 text-sm"
-                      >
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                        <span className="text-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <h2 className="font-heading text-lg font-bold mb-2">
+                    {activity.title}
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    {activity.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -190,10 +173,6 @@ const Products = () => {
 
         {/* CTA Section */}
         <section className="py-20 bg-card relative overflow-hidden border-y border-border">
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
-          </div>
           <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               Need a Specific Part?
