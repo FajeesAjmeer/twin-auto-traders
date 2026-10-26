@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, MessageCircle, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -20,15 +20,21 @@ const Footer = () => {
             <div className="flex gap-3 pt-2">
               <a href="https://www.facebook.com/share/1HiqFvUcWe/" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="Facebook">
-                <Facebook className="w-4 h-4 text-primary group-hover:text-white" />
+                <svg className="w-4 h-4 text-primary group-hover:text-white fill-current" viewBox="0 0 24 24">
+                  <path d="M22 12a10 10 0 10-11.5 9.95v-7.04H7.9V12h2.6V9.8c0-2.57 1.53-4 3.87-4 1.12 0 2.3.2 2.3.2v2.5h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.85l-.46 2.91h-2.39v7.04A10 10 0 0022 12z"/>
+                </svg>
               </a>
               <a href="https://www.instagram.com/twin_auto_traders?igsh=bjRpY3p6a2ZxYjJk" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="Instagram">
-                <Instagram className="w-4 h-4 text-primary group-hover:text-white" />
+                <svg className="w-4 h-4 text-primary group-hover:text-white fill-current" viewBox="0 0 24 24">
+                  <path d="M12 2c-2.72 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47a4.9 4.9 0 00-1.77 1.15 4.9 4.9 0 00-1.15 1.77c-.25.64-.42 1.37-.47 2.43C2.01 8.94 2 9.28 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43a4.9 4.9 0 001.15 1.77 4.9 4.9 0 001.77 1.15c.64.25 1.37.42 2.43.47C8.94 21.99 9.28 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47a4.9 4.9 0 001.77-1.15 4.9 4.9 0 001.15-1.77c.25-.64.42-1.37.47-2.43.05-1.06.06-1.4.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43a4.9 4.9 0 00-1.15-1.77 4.9 4.9 0 00-1.77-1.15c-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2zm0 1.8c2.67 0 2.99.01 4.04.06.97.04 1.5.21 1.85.34.46.18.79.39 1.14.74.35.35.56.68.74 1.14.13.35.3.88.34 1.85.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.97-.21 1.5-.34 1.85-.18.46-.39.79-.74 1.14-.35.35-.68.56-1.14.74-.35.13-.88.3-1.85.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.97-.04-1.5-.21-1.85-.34a3.1 3.1 0 01-1.14-.74 3.1 3.1 0 01-.74-1.14c-.13-.35-.3-.88-.34-1.85C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.97.21-1.5.34-1.85.18-.46.39-.79.74-1.14.35-.35.68-.56 1.14-.74.35-.13.88-.3 1.85-.34C9.01 3.81 9.33 3.8 12 3.8zm0 3.05a5.15 5.15 0 100 10.3 5.15 5.15 0 000-10.3zm0 8.5a3.35 3.35 0 110-6.7 3.35 3.35 0 010 6.7zm5.35-8.7a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                </svg>
               </a>
-                          <a href="https://wa.me/94740505718" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/94740505718" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="WhatsApp">
-                <MessageCircle className="w-4 h-4 text-primary group-hover:text-white" />
+                <svg className="w-4 h-4 text-primary group-hover:text-white fill-current" viewBox="0 0 24 24">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.4-1.42a9.87 9.87 0 004.64 1.18h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.64-1.03-5.13-2.9-7A9.82 9.82 0 0012.04 2zm0 1.8c2.14 0 4.15.83 5.67 2.35a7.96 7.96 0 012.33 5.65c0 4.42-3.6 8.02-8.03 8.02a8 8 0 01-4.1-1.13l-.29-.17-3.2.84.86-3.12-.19-.3a7.95 7.95 0 01-1.24-4.29c0-4.43 3.6-8.02 8.19-8.02zM9 7.3c-.17 0-.45.07-.69.33-.23.25-.9.87-.9 2.13 0 1.25.92 2.46 1.05 2.63.13.17 1.8 2.88 4.44 3.93.63.26 1.12.42 1.5.53.63.2 1.2.17 1.66.1.5-.07 1.56-.63 1.78-1.25.22-.62.22-1.14.15-1.25-.06-.11-.24-.17-.5-.3-.26-.14-1.56-.78-1.8-.86-.24-.09-.42-.14-.6.13-.17.26-.68.86-.84 1.04-.15.17-.3.19-.56.07-.26-.14-1.1-.4-2.1-1.3-.78-.68-1.3-1.52-1.46-1.78-.15-.26-.02-.4.12-.53.12-.12.26-.3.4-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.14-.6-1.47-.84-2.01-.22-.52-.45-.45-.6-.46H9z"/>
+                </svg>
               </a>
               <a href="https://www.tiktok.com/@twin_auto_traders" target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors group" aria-label="TikTok">
