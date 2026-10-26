@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import logo from "@/assets/logo-ta.png";
 const navLinks = [
   { name: "Home", path: "/" },
@@ -50,13 +51,13 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="whatsapp" size="lg" asChild>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 WhatsApp Us
               </a>
             </Button>
@@ -91,13 +92,13 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="pt-4 px-4">
-                <Button variant="hero" size="lg" className="w-full" asChild>
+                <Button variant="whatsapp" size="lg" className="w-full" asChild>
                   <a
                     href={`https://wa.me/${WHATSAPP_NUMBER}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MessageCircle className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4" />
                     WhatsApp Us
                   </a>
                 </Button>
