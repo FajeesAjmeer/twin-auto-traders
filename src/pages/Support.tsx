@@ -8,7 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { MessageCircle, Truck, ShieldCheck, HelpCircle } from "lucide-react";
+import { Truck, ShieldCheck, HelpCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const WHATSAPP_NUMBER = "94740505718";
@@ -71,8 +72,8 @@ const Support = () => {
           <div className="container mx-auto px-4">
             <div className="bg-card rounded-2xl p-8 md:p-10 card-shadow flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 bg-[hsl(142,70%,45%)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <WhatsAppIcon className="w-6 h-6 text-[hsl(142,70%,45%)]" />
                 </div>
                 <div>
                   <h2 className="font-heading text-2xl font-bold mb-2">
@@ -84,7 +85,7 @@ const Support = () => {
                   </p>
                 </div>
               </div>
-              <Button variant="hero" size="lg" asChild className="flex-shrink-0">
+              <Button variant="whatsapp" size="lg" asChild className="flex-shrink-0">
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                     "Hi, I'd like to request a part that's not listed on your website."
@@ -92,7 +93,7 @@ const Support = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4" />
                   Request on WhatsApp
                 </a>
               </Button>

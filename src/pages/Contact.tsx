@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 import { useState } from "react";
 import { toast } from "sonner";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -77,7 +78,7 @@ const Contact = () => {
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-[hsl(142,70%,45%)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MessageCircle className="w-6 h-6 text-[hsl(142,70%,45%)]" />
+                      <WhatsAppIcon className="w-6 h-6 text-[hsl(142,70%,45%)]" />
                     </div>
                     <div>
                       <h3 className="font-semibold mb-1">WhatsApp</h3>
@@ -122,9 +123,9 @@ const Contact = () => {
                   <Button variant="hero" size="lg" asChild>
                     <a href="tel:+94740505718"><Phone className="w-4 h-4" />Call Now</a>
                   </Button>
-                  <Button variant="heroOutline" size="lg" asChild>
+                  <Button variant="whatsapp" size="lg" asChild>
                     <a href="https://wa.me/94740505718" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-4 h-4" />WhatsApp
+                      <WhatsAppIcon className="w-4 h-4" />WhatsApp
                     </a>
                   </Button>
                 </div>

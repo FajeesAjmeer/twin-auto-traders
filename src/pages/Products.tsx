@@ -15,8 +15,8 @@ import {
   Zap,
   Package,
   ArrowRight,
-  MessageCircle,
 } from "lucide-react";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "94740505718";
 
@@ -200,7 +200,7 @@ const Products = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                   WhatsApp Us
                 </a>
               </Button>

@@ -1,6 +1,7 @@
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
 const WHATSAPP_NUMBER = "94740505718";
 
@@ -19,7 +20,7 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="hero" size="xl" asChild>
+            <Button variant="whatsapp" size="xl" asChild>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                   "Hi, I need help finding a part."
@@ -27,7 +28,7 @@ const CTASection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 Chat on WhatsApp
               </a>
             </Button>
