@@ -29,7 +29,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Twin Auto Traders"
-              className="h-12 md:h-14 w-auto object-contain"
+              className="h-8 md:h-10 w-auto object-contain"
             />
           </Link>
           {/* Desktop Navigation */}
