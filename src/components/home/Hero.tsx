@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import ParticleNetwork from "@/components/motion/ParticleNetwork";
 
 const WHATSAPP_NUMBER = "94740505718";
 
@@ -58,6 +59,14 @@ const Hero = () => {
             onError={() => setVideoFailed(true)}
           />
         )}
+        {/* Faint tech/EV-flavored particle network drifting over the video —
+            the "live" touch, kept to the hero only and skipped under
+            prefers-reduced-motion. Dark, low-opacity dots/lines so it reads
+            against both the video and the plain gradient fallback. */}
+        <ParticleNetwork
+          disabled={prefersReducedMotion}
+          className="absolute inset-0 w-full h-full"
+        />
         {/* No full-bleed overlay — the video should be fully visible.
             Text readability is handled by the frosted-glass panel below instead. */}
       </motion.div>
