@@ -1,24 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
-import ParticleNetwork from "@/components/motion/ParticleNetwork";
-
-// Three.js lives in its own chunk — only downloaded on capable desktops.
-const ParticleScene3D = lazy(() => import("@/components/motion/ParticleScene3D"));
-
-const canUse3D = () => {
-  if (typeof window === "undefined") return false;
-  if (window.innerWidth < 1024) return false;
-  try {
-    const c = document.createElement("canvas");
-    return !!(c.getContext("webgl2") || c.getContext("webgl"));
-  } catch {
-    return false;
-  }
-};
 
 const WHATSAPP_NUMBER = "94740505718";
 
@@ -26,11 +10,6 @@ const Hero = () => {
   const [videoFailed, setVideoFailed] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [use3D, setUse3D] = useState(false);
-
-  useEffect(() => {
-    setUse3D(canUse3D());
-  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -41,59 +20,14 @@ const Hero = () => {
   }, []);
 
   const showVideo = !videoFailed && !prefersReducedMotion;
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Stop decoding the video once the hero has scrolled out of view.
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) v.play().catch(() => {});
-      else v.pause();
-    });
-    io.observe(v);
-    return () => io.disconnect();
-  }, [showVideo]);
-
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  // Background drifts slower than the scroll for a subtle parallax depth cue.
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  // Foreground content moves faster than the background and fades out, so the
-  // layers separate as you scroll — the cinematic depth cue.
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  // The video "reacts" to scroll: slow push-in zoom and dimming as the hero
-  // leaves — a camera-dolly feel. Transform + opacity only (no blur/filter):
-  // those are the cheap, GPU-composited properties.
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
-  const videoOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.35]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background: solid placeholder that fades into the video once it's ready.
           No fallback image file needed — pure CSS/code. */}
-      <motion.div
-        style={prefersReducedMotion ? undefined : { y: bgY }}
-        className="absolute inset-0 bg-gradient-to-br from-secondary to-background"
-      >
-        <motion.div
-          style={
-            prefersReducedMotion
-              ? undefined
-              : { scale: videoScale, opacity: videoOpacity }
-          }
-          className="absolute inset-0 will-change-transform"
-        >
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary to-background">
         {showVideo && (
           <video
-            ref={videoRef}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               videoReady ? "opacity-100" : "opacity-0"
             }`}
@@ -109,34 +43,13 @@ const Hero = () => {
             onError={() => setVideoFailed(true)}
           />
         )}
-        </motion.div>
-        {/* Faint tech/EV-flavored particle network drifting over the video —
-            the "live" touch, kept to the hero only and skipped under
-            prefers-reduced-motion. Dark, low-opacity dots/lines so it reads
-            against both the video and the plain gradient fallback. */}
-        {use3D && !prefersReducedMotion ? (
-          <Suspense fallback={null}>
-            <ParticleScene3D
-              scrollTarget={sectionRef}
-              className="absolute inset-0 w-full h-full"
-            />
-          </Suspense>
-        ) : (
-          <ParticleNetwork
-            disabled={prefersReducedMotion}
-            className="absolute inset-0 w-full h-full"
-          />
-        )}
         {/* No full-bleed overlay — the video should be fully visible.
             Text readability is handled by the frosted-glass panel below instead. */}
-      </motion.div>
+      </div>
 
       {/* Content */}
-      <motion.div
-        style={prefersReducedMotion ? undefined : { y: contentY, opacity: contentOpacity }}
-        className="relative z-10 container mx-auto px-4 py-24 md:py-0"
-      >
-        <div className="max-w-2xl bg-background/90 border border-border/40 rounded-2xl md:rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl">
+      <div className="relative z-10 container mx-auto px-4 py-24 md:py-0">
+        <div className="max-w-2xl bg-background/75 backdrop-blur-md border border-border/40 rounded-2xl md:rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6 animate-fade-in">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
@@ -223,7 +136,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
