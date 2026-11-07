@@ -1,4 +1,5 @@
 import { Shield, Clock, Award, Truck } from "lucide-react";
+import Reveal from "@/components/motion/Reveal";
 
 const features = [
   {
@@ -33,7 +34,7 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div>
+          <Reveal>
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
               Why Choose Us
             </span>
@@ -48,7 +49,7 @@ const WhyChooseUs = () => {
 
             <div className="grid sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="flex gap-4">
+                <Reveal key={index} delay={0.1 + index * 0.08} className="flex gap-4">
                   <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-6 h-6 text-primary" />
                   </div>
@@ -60,13 +61,13 @@ const WhyChooseUs = () => {
                       {feature.description}
                     </p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Visual */}
-          <div className="relative">
+          <Reveal delay={0.15} className="relative">
             <div className="aspect-square bg-gradient-to-br from-[#bebebe] to-[#e0e0e0] rounded-2xl p-8 flex items-center justify-center">
               <div className="text-center">
                 <div className="font-heading text-7xl md:text-8xl font-bold text-primary mb-4">
@@ -91,7 +92,7 @@ const WhyChooseUs = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

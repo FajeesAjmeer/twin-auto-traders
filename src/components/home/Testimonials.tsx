@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase, type Review } from "@/lib/supabase";
+import Reveal from "@/components/motion/Reveal";
 
 /**
  * GOOGLE REVIEWS WIDGET — ACTION NEEDED
@@ -45,7 +46,7 @@ const Testimonials = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <Reveal className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">Customer Reviews</span>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold mt-2 mb-4">
             What Our Customers Say
@@ -53,7 +54,7 @@ const Testimonials = () => {
           <p className="text-muted-foreground text-lg">
             500+ happy customers across Eastern Province trust Twin Auto Traders.
           </p>
-        </div>
+        </Reveal>
 
         {GOOGLE_REVIEWS_WIDGET_READY ? (
           <div id="google-reviews-widget">
@@ -63,8 +64,8 @@ const Testimonials = () => {
           <div className="text-center text-muted-foreground py-8">Loading reviews...</div>
         ) : (
           <div className="grid md:grid-cols-3 gap-6">
-            {displayReviews.map((r) => (
-              <div key={r.id} className="bg-card rounded-xl p-6 card-shadow hover:elevated-shadow transition-all duration-300">
+            {displayReviews.map((r, idx) => (
+              <Reveal key={r.id} delay={idx * 0.1} className="bg-card rounded-xl p-6 card-shadow hover:elevated-shadow transition-all duration-300">
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: r.rating }).map((_, j) => (
                     <Star key={j} className="w-5 h-5 fill-primary text-primary" />
@@ -75,7 +76,7 @@ const Testimonials = () => {
                   <p className="font-semibold text-sm">{r.name}</p>
                   <p className="text-xs text-muted-foreground">{r.location}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         )}

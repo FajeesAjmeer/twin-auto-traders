@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
 
@@ -21,11 +22,25 @@ const Hero = () => {
 
   const showVideo = !videoFailed && !prefersReducedMotion;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  // Background drifts slower than the scroll for a subtle parallax depth cue.
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Background: solid placeholder that fades into the video once it's ready.
           No fallback image file needed — pure CSS/code. */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary to-background">
+      <motion.div
+        style={prefersReducedMotion ? undefined : { y: bgY }}
+        className="absolute inset-0 bg-gradient-to-br from-secondary to-background"
+      >
         {showVideo && (
           <video
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
@@ -45,7 +60,7 @@ const Hero = () => {
         )}
         {/* No full-bleed overlay — the video should be fully visible.
             Text readability is handled by the frosted-glass panel below instead. */}
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-24 md:py-0">

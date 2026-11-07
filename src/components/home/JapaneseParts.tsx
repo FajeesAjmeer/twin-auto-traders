@@ -1,6 +1,7 @@
 import { ArrowRight, Settings, Disc, Waves, Zap, Sparkles, PaintBucket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import Reveal from "@/components/motion/Reveal";
 import toyotaLogo from "@/assets/toyota-logo.webp";
 import hondaLogo from "@/assets/honda-logo.webp";
 import nissanLogo from "@/assets/nissan-logo.webp";
@@ -31,7 +32,7 @@ const JapaneseParts = () => {
     <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-2xl mb-14">
+        <Reveal className="max-w-2xl mb-14">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
             Japanese Vehicle Parts
           </span>
@@ -42,10 +43,10 @@ const JapaneseParts = () => {
             We stock and import spare parts for the Japanese brands Sri Lankan
             drivers trust most.
           </p>
-        </div>
+        </Reveal>
 
         {/* Brand Explorer */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+        <Reveal delay={0.1} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
           {brands.map((brand) => (
             <Link
               key={brand.name}
@@ -64,10 +65,10 @@ const JapaneseParts = () => {
               </span>
             </Link>
           ))}
-        </div>
+        </Reveal>
 
         {/* Featured Categories */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+        <Reveal delay={0.15} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
           {categories.map((category) => (
             <div
               key={category.name}
@@ -79,7 +80,7 @@ const JapaneseParts = () => {
               </span>
             </div>
           ))}
-        </div>
+        </Reveal>
 
         {/* CTA */}
         <div className="text-center">

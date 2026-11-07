@@ -1,4 +1,5 @@
 import { Battery, BatteryCharging, Plug, Zap, Sparkles } from "lucide-react";
+import Reveal from "@/components/motion/Reveal";
 
 const evCards = [
   {
@@ -30,7 +31,7 @@ const FutureMobility = () => {
     <section id="future-mobility" className="py-16 md:py-20 bg-secondary/40">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-2xl mb-10">
+        <Reveal className="max-w-2xl mb-10">
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
             Future Mobility
           </span>
@@ -41,10 +42,10 @@ const FutureMobility = () => {
             As Sri Lanka moves toward electric vehicles, we're building our
             capability to support them too.
           </p>
-        </div>
+        </Reveal>
 
         {/* EV Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <Reveal delay={0.1} className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {evCards.map((card) => (
             <div
               key={card.title}
@@ -59,10 +60,10 @@ const FutureMobility = () => {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
 
         {/* Coming Soon */}
-        <div className="bg-card/30 backdrop-blur-sm border border-dashed border-primary/30 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+        <Reveal delay={0.15} className="bg-card/30 backdrop-blur-sm border border-dashed border-primary/30 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
               <Sparkles className="w-5 h-5 text-primary" />
@@ -79,7 +80,7 @@ const FutureMobility = () => {
               </span>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

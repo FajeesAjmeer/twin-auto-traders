@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import WhatsAppIcon from "@/components/icons/WhatsAppIcon";
+import Reveal from "@/components/motion/Reveal";
 
 const WHATSAPP_NUMBER = "94740505718";
 
@@ -10,7 +11,7 @@ const CTASection = () => {
     <section className="py-20 bg-secondary relative overflow-hidden border-y border-border">
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <Reveal className="max-w-3xl mx-auto text-center">
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Need Help Finding Parts?
           </h2>
@@ -39,7 +40,7 @@ const CTASection = () => {
               </Link>
             </Button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
