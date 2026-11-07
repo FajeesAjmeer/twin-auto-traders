@@ -41,6 +41,19 @@ const Hero = () => {
   }, []);
 
   const showVideo = !videoFailed && !prefersReducedMotion;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Stop decoding the video once the hero has scrolled out of view.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) v.play().catch(() => {});
+      else v.pause();
+    });
+    io.observe(v);
+    return () => io.disconnect();
+  }, [showVideo]);
 
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -53,12 +66,10 @@ const Hero = () => {
   // layers separate as you scroll — the cinematic depth cue.
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  // The video itself "reacts" to scroll: slow push-in zoom, softening focus and
-  // dimming as the hero leaves — a camera-dolly feel. Blur is kept small (max 8px)
-  // since it's GPU-composited per frame.
+  // The video "reacts" to scroll: slow push-in zoom and dimming as the hero
+  // leaves — a camera-dolly feel. Transform + opacity only (no blur/filter):
+  // those are the cheap, GPU-composited properties.
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
-  const videoBlur = useTransform(scrollYProgress, [0, 1], [0, 8]);
-  const videoFilter = useTransform(videoBlur, (b) => `blur(${b}px)`);
   const videoOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.35]);
 
   return (
@@ -76,12 +87,13 @@ const Hero = () => {
           style={
             prefersReducedMotion
               ? undefined
-              : { scale: videoScale, filter: videoFilter, opacity: videoOpacity }
+              : { scale: videoScale, opacity: videoOpacity }
           }
           className="absolute inset-0 will-change-transform"
         >
         {showVideo && (
           <video
+            ref={videoRef}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
               videoReady ? "opacity-100" : "opacity-0"
             }`}
@@ -124,7 +136,7 @@ const Hero = () => {
         style={prefersReducedMotion ? undefined : { y: contentY, opacity: contentOpacity }}
         className="relative z-10 container mx-auto px-4 py-24 md:py-0"
       >
-        <div className="max-w-2xl bg-background/75 backdrop-blur-md border border-border/40 rounded-2xl md:rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl">
+        <div className="max-w-2xl bg-background/90 border border-border/40 rounded-2xl md:rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6 animate-fade-in">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />

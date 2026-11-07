@@ -27,7 +27,7 @@ interface ParticleScene3DProps {
  * A drifting particle sphere + faint wireframe core that follows the cursor and
  * "dollies" back as the hero scrolls out, for a cinematic depth feel.
  *
- * Cost control: loaded lazily (own chunk), capped pixel ratio, renders only
+ * Cost control: loaded lazily (own chunk), 600 particles, 1x pixel ratio, no MSAA, ~30fps cap, renders only
  * while the hero is on screen and the tab is visible, fully disposed on unmount.
  */
 const ParticleScene3D = ({ className, scrollTarget }: ParticleScene3DProps) => {
@@ -39,11 +39,11 @@ const ParticleScene3D = ({ className, scrollTarget }: ParticleScene3DProps) => {
 
     let renderer: WebGLRenderer;
     try {
-      renderer = new WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer = new WebGLRenderer({ canvas, alpha: true, antialias: false });
     } catch {
       return; // WebGL unavailable — hero keeps the plain background.
     }
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setPixelRatio(1);
 
     const scene = new Scene();
     scene.add(new AmbientLight(0xffffff, 1));
@@ -66,7 +66,7 @@ const ParticleScene3D = ({ className, scrollTarget }: ParticleScene3DProps) => {
     const sprite = new CanvasTexture(spriteCanvas);
 
     // Particles on a sphere shell with some depth jitter.
-    const COUNT = 1400;
+    const COUNT = 600;
     const positions = new Float32Array(COUNT * 3);
     for (let i = 0; i < COUNT; i++) {
       const u = Math.random();
@@ -81,7 +81,7 @@ const ParticleScene3D = ({ className, scrollTarget }: ParticleScene3DProps) => {
     const pointsGeo = new BufferGeometry();
     pointsGeo.setAttribute("position", new BufferAttribute(positions, 3));
     const pointsMat = new PointsMaterial({
-      size: 0.05,
+      size: 0.07,
       map: sprite,
       transparent: true,
       opacity: 0.7,
@@ -122,6 +122,7 @@ const ParticleScene3D = ({ className, scrollTarget }: ParticleScene3DProps) => {
     const tick = (now: number) => {
       frame = requestAnimationFrame(tick);
       if (!visible || !tabVisible) return;
+      if (now - clock.last < 33) return; // ~30fps cap — plenty for slow drift, halves GPU/CPU use
       const dt = Math.min((now - clock.last) / 1000, 0.05);
       clock.last = now;
 
