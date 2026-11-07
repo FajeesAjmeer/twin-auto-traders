@@ -53,6 +53,13 @@ const Hero = () => {
   // layers separate as you scroll — the cinematic depth cue.
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-18%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  // The video itself "reacts" to scroll: slow push-in zoom, softening focus and
+  // dimming as the hero leaves — a camera-dolly feel. Blur is kept small (max 8px)
+  // since it's GPU-composited per frame.
+  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
+  const videoBlur = useTransform(scrollYProgress, [0, 1], [0, 8]);
+  const videoFilter = useTransform(videoBlur, (b) => `blur(${b}px)`);
+  const videoOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.35]);
 
   return (
     <section
@@ -65,6 +72,14 @@ const Hero = () => {
         style={prefersReducedMotion ? undefined : { y: bgY }}
         className="absolute inset-0 bg-gradient-to-br from-secondary to-background"
       >
+        <motion.div
+          style={
+            prefersReducedMotion
+              ? undefined
+              : { scale: videoScale, filter: videoFilter, opacity: videoOpacity }
+          }
+          className="absolute inset-0 will-change-transform"
+        >
         {showVideo && (
           <video
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
@@ -82,6 +97,7 @@ const Hero = () => {
             onError={() => setVideoFailed(true)}
           />
         )}
+        </motion.div>
         {/* Faint tech/EV-flavored particle network drifting over the video —
             the "live" touch, kept to the hero only and skipped under
             prefers-reduced-motion. Dark, low-opacity dots/lines so it reads
